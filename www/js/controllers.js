@@ -1,3 +1,4 @@
+// Controladores
 angular.module('starter.controllers', ['ionic','ngCordova'])
 
 .controller('mapsCtrl', function($scope, $state, $cordovaGeolocation, Establecimientos) {
