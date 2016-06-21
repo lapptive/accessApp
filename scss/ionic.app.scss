@@ -29,6 +29,17 @@ body{
 }
 
 
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('bukhari.eot'); /* IE9 Compat Modes */
+  src: url('bukhari.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('bukhari.woff2') format('woff2'), /* Super Modern Browsers */
+       url('bukhari.woff') format('woff'), /* Pretty Modern Browsers */
+       url('bukhari.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('bukhari.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+
 ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.activated {
 	border:none;
 }
@@ -73,6 +84,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 
 .bar-header .title {
    line-height: 53px;
+   font-family: 'MyWebFont', sans-serif;
 }
 
 .has-header {
@@ -91,6 +103,8 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 	}
 
 }
+
+
 
 /*	Pagina Encuentra */
 
@@ -129,7 +143,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 				background-color:rgba(0,0,0,0.2);
 				z-index: 1;
 			}
-			
+
 			h3 {
 
 				position:relative;
@@ -166,4 +180,71 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 	}
 }
 
+/*	Pagina Busqueda detalle categoria*/
+
+.busqueda{
+	padding:0.2em;
+	
+	&-item{
+		padding: 0;
+		margin:0;
+		border:none;
+		background-color:#fff;
+		width: calc(100% - 15px);
+		margin:0 auto;
+		border-radius:4px;		
+		margin-bottom:20px;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+		&-image{
+			width: 100%;
+			height:150px;
+			overflow:hidden;
+			img {
+			    min-width:100%;
+			    min-height:100%
+			}
+		}
+		&-info{
+			padding:1em;
+			h4,h3{
+				margin:0;
+			}
+
+			h4 {
+				color:$positive;
+				font-size: 0.9em;
+				margin-bottom:5px;
+			}
+			h3{
+				font-size: 1.2em;
+				font-weight: bold;
+			}
+			p{
+				color: #4C4C4C;
+			}
+		}
+
+	}
+}
+.input-busqueda{
+	//box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	margin-top:10px;
+	padding:0.1em;
+	border: 0px;
+	margin-left:8px;
+	margin-bottom:15px;
+
+	input,label {
+		border:none;
+	}
+	.icon{
+		margin-right: 0.5em;
+		margin-left:0.5em;
+	}
+}
+
+.item-busqueda{
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
 
