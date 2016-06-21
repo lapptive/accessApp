@@ -65,28 +65,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-explora': {
           templateUrl: 'templates/tab-explora.html',
-          controller: 'ChatsCtrl'
+          controller: 'mapsCtrl'
         }
       }
     })
-  
-  // .state('tab.chat-detail', {
-  //   url: '/chats/:chatId',
-  //   views: {
-  //     'tab-chats': {
-  //       templateUrl: 'templates/chat-detail.html',
-  //       controller: 'ChatDetailCtrl'
-  //     }
-  //   }
-  // })
-  
 
   .state('tab.acerca', {
     url: '/acerca',
     views: {
       'tab-acerca': {
         templateUrl: 'templates/tab-acerca.html',
-        controller: 'AccountCtrl'
+        controller: ''
       }
     }
   })
@@ -97,7 +86,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'tab-colabora': {
         templateUrl: 'templates/tab-colabora.html',
-        controller: 'AccountCtrl'
+        controller: ''
       }
     }
   })
@@ -124,17 +113,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-
-
-  .state('tab.detalle', {
-    url: '/detalle/:id',
-    views: {
-      'tab-encuentra': {
-        templateUrl: 'templates/detalle.html',
-        controller: 'detalleCtrl'
-      }
-    }
-  })
+    .state('detalle', {
+      url: '/detalle/:id',
+      templateUrl: 'templates/detalle.html',
+      controller: 'detalleCtrl'
+      
+    })
 
   ;
  
