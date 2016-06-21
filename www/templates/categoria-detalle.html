@@ -14,7 +14,7 @@
 		<!-- Lista Busqueda -->
 		<div class="list">
 
-		<a href="#/tab/detalle/{{ establecimiento.id }}" class="busqueda-item item" ng-repeat="establecimiento in establecimientos | filter:searchText track by $index"">
+		<a href="#/detalle/{{ establecimiento.id }}" class="busqueda-item item" ng-repeat="establecimiento in establecimientos | filter:searchText track by $index"">
 
 			<div class="busqueda-item-image">
 				<img class="wide" ng-src="{{ establecimiento.image1 }}" alt="">

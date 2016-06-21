@@ -11,7 +11,7 @@
 		</div>
 		
 		<div class="list">
-		    <a class="item item-avatar item-icon-right" href="#/tab/detalle/{{ establecimiento.id }}" ng-repeat="establecimiento in listaOrdenada | filter:searchText track by $index" ng-class="establecimiento.letter? 'item-divider':''">
+		    <a class="item item-avatar item-icon-right" href="#/detalle/{{ establecimiento.id }}" ng-repeat="establecimiento in listaOrdenada | filter:searchText track by $index" ng-class="establecimiento.letter? 'item-divider':''">
 
 		      <img ng-src="{{ establecimiento.image1}}">
 		      <h2>{{ establecimiento.name }}</h2>
