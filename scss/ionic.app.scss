@@ -118,11 +118,9 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 		width: 100%;
 		text-align:center;
 		font-size:0;
-		
 		padding-top:3px;
 		padding-left:1px;
 		padding-right:1px;
-
 		&-item{
 			height:200px;
 			background-size :cover;
@@ -132,7 +130,6 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 			width: calc(50% - 6px);
 			display:inline-block;
 			margin:2px;
-			
 			text-decoration:none;
 			&:before{
 				content:"";
