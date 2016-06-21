@@ -23,3 +23,8 @@ More info on this can be found on the Ionic [Getting Started](http://ionicframew
 
 ## Issues
 Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/submit-issue/) to the main Ionic repository.
+
+
+## Description App:
+
+AccessApp es una aplicación, que promueve la información, ubicación, existencia y uso de entornos accesibles. A partir de mapas existentes los usuarios con limitacion fisicas, cognitivas y sensoriales por medio de la geolocalización podran encontrar y elegir el establecimiento que se acomoda a su limitacion.
