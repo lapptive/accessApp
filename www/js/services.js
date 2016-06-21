@@ -11,7 +11,6 @@ angular.module('starter.services', [])
       $http.get("wwww.cofinauto.com/Accessapp/Backend/src/WebServices/getAllEstablishment.php").then(function(response){
         establecimientos = response.data;
       });
-
       
     },
 
@@ -36,7 +35,6 @@ angular.module('starter.services', [])
           establecimientoscategoria.push(establecimientos[i]);
         }
       }
-      console.log(establecimientoscategoria);
       //establecimientoscategoria.push(establecimientos);
       return establecimientoscategoria; 
     },

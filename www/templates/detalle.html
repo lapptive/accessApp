@@ -10,12 +10,12 @@
 	    </select>
 	</div>
 
-	<div class="mapa" id="map" ng-init="initialize(latitude , longitude, establecimiento.category )" data-tap-disabled="true">
+	<div class="mapa" id="map" ng-init="initialize(latitude , longitude, establecimiento.idCategory )" data-tap-disabled="true">
 		<!-- <img src="img/mapa.png" alt=""> -->
 	</div>
 	
 	<div class="detalle">
-		<div class="container-skew">
+		
 			<div class="busqueda-item-info">
 				
 				<h4>{{ establecimiento.category }}</h4>
@@ -26,9 +26,10 @@
 				<button class="icon button button-icon icon-left ion-android-share-alt">Compartir</button>
 
 				<button class="icon button button-icon icon-left  ion-ios-heart-outline	">Favorito</button>			
+				
 
 			</div>
-		</div>
+		
 	</div>
 
 	<ion-slide-box >
@@ -51,6 +52,33 @@
         </ion-slide>
 
     </ion-slide-box>
+
+
+    <div class="container-comentarios">
+    	<h4>Comentarios</h4>
+    	
+
+    	<form name="formComentario">
+	    	<div class="list-inset">
+			  	<label class="item item-input item-stacked-label">
+			    	<input type="text" placeholder="Añade un comentario" ng-model="formDataC.message">
+			  	</label>
+
+				<button class="button button-block button-positive" ng-click="submitComentario()" ng-disabled="formComentario.$invalid">
+				  Enviar
+			  	</button>
+			</div>  
+		</form>
+		
+		<div class="comentario" id="contenedorComentarios">			
+			
+			<div class="comentario-user"></div>
+
+			<div class="comentario-descripcion"></div>
+
+		</div>
+
+    </div>	
 
                 
 

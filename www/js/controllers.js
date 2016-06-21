@@ -121,8 +121,8 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
              position: new google.maps.LatLng(info.latitude, info.longitude),
              map: $scope.map,
              //animation: google.maps.Animation.DROP,
-             title: info.establecimiento
-            // icon:"./img/marcadores/"+info.categoria.toLowerCase()+".png"
+             title: info.establecimiento,
+             icon:"./img/marcadoresCategorias/"+info.idCategory+".png"
              //icon: path+info.categoria+".png"
          });
          
@@ -149,7 +149,6 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
    }
 
    //Si ya estan guardadas las variables de sesión 
-
 
    function miPosicion(){
 
@@ -199,7 +198,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
 .controller('mapsCtrlDetalle', function($scope, $ionicLoading,$ionicPlatform,Establecimientos) {
    
 
-   $scope.initialize = function(lat,long,categoria) {
+   $scope.initialize = function(lat,long,idCategory) {
     
     console.log(lat,long);
 
@@ -290,8 +289,8 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
        var marker = new google.maps.Marker({
          position: myLatlng,
          map: map,
-         title: 'Uluru (Ayers Rock)'
-         //icon:"./img/marcadores/"+categoria.toLowerCase()+".png"
+         //title: '',
+         icon:"./img/marcadoresCategorias/"+idCategory+".png"
        });
 
      google.maps.event.addListener(marker, 'click', function() {
@@ -352,22 +351,91 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
 
       }  
 
-    });
-
-    document.getElementsByClassName("item-divider").style='color:red';
-
-
-
-      
+    });      
 
 })
 
 .controller('detalleCtrl', function($scope, $stateParams, Establecimientos,$http) {
-  
+
   $scope.establecimiento = Establecimientos.get($stateParams.id);
 
   $scope.latitude = $scope.establecimiento.latitude;
   $scope.longitude = $scope.establecimiento.longitude;
+
+
+  $scope.formDataC = {};
+
+  
+  $scope.formDataC.id = $scope.establecimiento.id;
+
+  var resultHTML = '';
+  $.ajax({
+      type: "POST",
+      url: "http://cofinauto.com/Accessapp/Backend/src/WebServices/getCommentsByEstablishment.php",
+      data:{idEstablishment:$scope.establecimiento.id},
+
+      beforeSend: function( xhr ) {
+      },
+      success: function(ajaxresult){
+        for (var i = 0; i < ajaxresult.length; i++) {
+          resultHTML+="<div class=comentario-user></div> <div class=comentario-descripcion>"+ajaxresult[i].body+"</div>";
+        }  
+
+        console.log(ajaxresult);
+        $('#contenedorComentarios').html(resultHTML);
+
+       },//fin success
+     
+     error: function(dato){
+       console.log(dato);
+     }
+  }); 
+  
+  $scope.submitComentario = function(){
+      
+      var link = 'http://cofinauto.com/Accessapp/Backend/src/WebServices/insertComment.php';
+
+      $http.post(link,$scope.formDataC ).then(function (res){
+          
+          var resultHTML = '';
+          $.ajax({
+                type: "POST",
+                url: "http://cofinauto.com/Accessapp/Backend/src/WebServices/getCommentsByEstablishment.php",
+                data:{idEstablishment:$scope.establecimiento.id},
+                    
+                beforeSend: function( xhr ) {
+                },
+                success: function(ajaxresult){
+                  for (var i = 0; i < ajaxresult.length; i++) {
+                    resultHTML+="<div class=comentario-user></div> <div class=comentario-descripcion>"+ajaxresult[i].body+"</div>";
+                  }  
+
+                  console.log(ajaxresult);
+                  $('#contenedorComentarios').html(resultHTML);
+
+                 },//fin success
+               
+               error: function(dato){
+                 console.log(dato);
+               }
+            }); 
+
+
+
+      }, function () {//Valida si hubi algun error
+        console.log("hubo un error");
+      });  
+  }
+
+})
+
+.controller('limitacionesCtrl', function($scope, $stateParams, Establecimientos) {
+  $('#checkSensorial').on('cha', function(event) {
+    event.preventDefault();
+    alert("hola mundo");
+  });
+  
+  //$scope.establecimientos = Establecimientos.filtroCategoria($stateParams.categoria);
 
 })
 

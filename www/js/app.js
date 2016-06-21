@@ -104,6 +104,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+   .state('tab.perfil', {
+    url: '/perfil',
+    views: {
+      'tab-encuentra': {
+        templateUrl: 'templates/perfil.html',
+        controller: 'limitacionesCtrl'
+      }
+    }
+  })
+
   .state('tab.categoria-detalle', {
     url: '/categoria-detalle/:categoria',
     views: {
@@ -113,10 +123,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
+
     .state('detalle', {
       url: '/detalle/:id',
       templateUrl: 'templates/detalle.html',
-      controller: 'detalleCtrl'
+      controller: 'detalleCtrl',
+      cache:false
       
     })
 
