@@ -1,0 +1,38 @@
+<ion-view view-title="Busqueda">
+  <ion-content class="content-material">
+  	<div class="busqueda">
+
+
+  		<!-- Campo Busqueda -->
+	    <div class="list list-inset input-busqueda">
+			<label class="item item-input">
+		    	<i class="icon ion-search placeholder-icon"></i>
+		    	<input type="text" placeholder="Busqueda" ng-model="searchText.name">
+		  	</label>
+		</div>
+		
+		<!-- Lista Busqueda -->
+		<div class="list">
+
+		<a href="#/tab/detalle/{{ establecimiento.id }}" class="busqueda-item item" ng-repeat="establecimiento in establecimientos | filter:searchText track by $index"">
+
+			<div class="busqueda-item-image">
+				<img class="wide" ng-src="{{ establecimiento.image1 }}" alt="">
+			</div>
+			<div class="busqueda-item-info">
+				<h4>{{ establecimiento.category }}</h4>
+				<h3>{{ establecimiento.name }}</h3>
+				<p>{{ establecimiento.description }}</p>
+			</div>
+			
+		</a>
+
+		
+		<!-- Fin Lista -->
+		</div>
+		
+	</div>
+
+
+  </ion-content>
+</ion-view>

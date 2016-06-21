@@ -1,0 +1,58 @@
+<ion-view view-title="Detalle">
+  <ion-content class="content-material" ng-controller="mapsCtrlDetalle">
+    <div id="floating-panel">
+	    <b>Modo de Viaje: </b>
+	    <select id="mode">
+	      <option value="DRIVING">Manejando</option>
+	      <option value="WALKING">Caminando</option>
+	      <option value="BICYCLING">En Bicicleta</option>
+	      <option value="TRANSIT">Transporte publico</option>
+	    </select>
+	</div>
+
+	<div class="mapa" id="map" ng-init="initialize(latitude , longitude, establecimiento.category )" data-tap-disabled="true">
+		<!-- <img src="img/mapa.png" alt=""> -->
+	</div>
+	
+	<div class="detalle">
+		<div class="container-skew">
+			<div class="busqueda-item-info">
+				
+				<h4>{{ establecimiento.category }}</h4>
+				<h3>{{ establecimiento.name }}</h3>
+				<p>{{ establecimiento.description }}
+				</p>
+
+				<button class="icon button button-icon icon-left ion-android-share-alt">Compartir</button>
+
+				<button class="icon button button-icon icon-left  ion-ios-heart-outline	">Favorito</button>			
+
+			</div>
+		</div>
+	</div>
+
+	<ion-slide-box >
+    	<!-- <ion-slide ng-repeat="image in images">
+            <img src="img/parque1.jpg">
+        </ion-slide> -->
+
+        <ion-slide>
+            <img ng-src="{{ establecimiento.image1 }}">
+        </ion-slide>
+
+        <ion-slide>
+            <img ng-src="{{ establecimiento.image2 }}">
+        </ion-slide>
+
+        <ion-slide>
+        	<div class="box">
+            <img ng-src="{{ establecimiento.image3 }}">
+            </div>
+        </ion-slide>
+
+    </ion-slide-box>
+
+                
+
+  </ion-content>
+</ion-view>
