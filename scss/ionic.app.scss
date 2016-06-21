@@ -92,3 +92,78 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 
 }
 
+/*	Pagina Encuentra */
+
+.encuentra{
+	width: 100%;
+	height:100%;
+	background-color:#EDF2F6;
+	padding-bottom:7px;	
+	&-categorias{
+		width: 100%;
+		text-align:center;
+		font-size:0;
+		
+		padding-top:3px;
+		padding-left:1px;
+		padding-right:1px;
+
+		&-item{
+			height:200px;
+			background-size :cover;
+			vertical-align:top;
+			position:relative;
+			z-index: 1;
+			width: calc(50% - 6px);
+			display:inline-block;
+			margin:2px;
+			
+			text-decoration:none;
+			&:before{
+				content:"";
+				position:absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color:rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+			
+			h3 {
+
+				position:relative;
+				z-index: 10;
+				width: 80%;
+				border-top:1px solid #fff;
+				border-bottom:1px solid #fff;
+				color: #fff;
+				text-transform: uppercase;
+				text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+				margin: 0 auto;
+				padding: 0.3em 0;
+				font-size: 16px;
+				margin-top:80px;
+			}
+
+		}
+		/*	Imagenes de las categorias 	*/	
+		.hotel{
+			background-image: url("../img/hoteles.jpg");
+		}
+
+		.turismo{
+			background-image: url("../img/sitiosturisticos.jpg");
+		}
+		.restaurante{
+			background-image: url("../img/restaurantes.jpg");
+		}
+
+		.centro{
+			background-image: url("../img/centroscomerciales.jpg");
+		}
+
+	}
+}
+
+
