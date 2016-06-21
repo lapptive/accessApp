@@ -1,50 +1,65 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
+.factory('Establecimientos', function($http) { 
 
-  // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
+    var establecimientos = [];
 
-  return {
-    all: function() {
-      return chats;
+    return{
+      
+    getEstablecimientos : function() {  
+    
+      $http.get("wwww.cofinauto.com/Accessapp/Backend/src/WebServices/getAllEstablishment.php").then(function(response){
+        establecimientos = response.data;
+      });
+
+      
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+
+    get: function(id) {
+      for (var i = 0; i < establecimientos.length; i++) {
+        if (establecimientos[i].id === id) {
+          return establecimientos[i];
         }
       }
       return null;
+    },
+
+    filtroCategoria: function(_categoria) {
+      
+      establecimientoscategoria = [];
+      
+      console.log(establecimientos.length);
+
+       for (var i = 0; i < establecimientos.length; i++) {
+        if (establecimientos[i].idCategory == _categoria) {
+          //establecimientoscategoria.push(establecimientos[i]);
+          establecimientoscategoria.push(establecimientos[i]);
+        }
+      }
+      console.log(establecimientoscategoria);
+      //establecimientoscategoria.push(establecimientos);
+      return establecimientoscategoria; 
+    },
+    
+
+    getEstablecimientos : function(nombreCiudad) {
+        establecimientos = $http({
+            method : 'POST',
+            url : 'http://cofinauto.com/Accessapp/Backend/src/WebServices/getAllEstablishment.php'
+        });
+         
+
+        $http.post('http://cofinauto.com/Accessapp/Backend/src/WebServices/getAllEstablishment.php').then(function (response) {
+          establecimientos = response.data;
+          console.log(response.data);
+        }, function () {
+           // body...
+        });
+
+
+        return establecimientos;        
     }
-  };
+
+  } 
 });
+
