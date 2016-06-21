@@ -8,6 +8,8 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
+  
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -23,12 +25,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
+   $ionicConfigProvider.tabs.position('bottom'); 
+
+   $ionicConfigProvider.platform.android.tabs.style('standard'); 
+
+   $ionicConfigProvider.platform.android.tabs.style('standard'); 
+
+   
+
   $stateProvider
 
   // setup an abstract state for the tabs directive
@@ -40,46 +50,96 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.encuentra', {
+    url: '/encuentra',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-encuentra': {
+        templateUrl: 'templates/tab-encuentra.html',
+        controller: 'busquedaTodosCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.explora', {
+      url: '/explora',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
+        'tab-explora': {
+          templateUrl: 'templates/tab-explora.html',
           controller: 'ChatsCtrl'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
+  
+  // .state('tab.chat-detail', {
+  //   url: '/chats/:chatId',
+  //   views: {
+  //     'tab-chats': {
+  //       templateUrl: 'templates/chat-detail.html',
+  //       controller: 'ChatDetailCtrl'
+  //     }
+  //   }
+  // })
+  
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.acerca', {
+    url: '/acerca',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
+      'tab-acerca': {
+        templateUrl: 'templates/tab-acerca.html',
         controller: 'AccountCtrl'
       }
     }
-  });
+  })
+
+
+  .state('tab.colabora', {
+    url: '/colabora',
+    views: {
+      'tab-colabora': {
+        templateUrl: 'templates/tab-colabora.html',
+        controller: 'AccountCtrl'
+      }
+    }
+  })
+
+
+  //--------- Fin tabs --------
+
+  .state('tab.busqueda', {
+    url: '/busqueda',
+    views: {
+      'tab-encuentra': {
+        templateUrl: 'templates/busqueda.html',
+        controller: 'busquedaTodosCtrl'
+      }
+    }
+  })
+
+  .state('tab.categoria-detalle', {
+    url: '/categoria-detalle/:categoria',
+    views: {
+      'tab-encuentra': {
+        templateUrl: 'templates/categoria-detalle.html',
+        controller: 'detalleCategoriasCtrl'
+      }
+    }
+  })
+
+
+  .state('tab.detalle', {
+    url: '/detalle/:id',
+    views: {
+      'tab-encuentra': {
+        templateUrl: 'templates/detalle.html',
+        controller: 'detalleCtrl'
+      }
+    }
+  })
+
+  ;
+ 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/encuentra');
 
 });
